@@ -56,7 +56,7 @@
     <!-- Calculator -->
 
     <!-- Connect -->
-    <string name="blank">c</string>
+    <string name="blank"></string>
     <string name="Player1">Player 1</string>
     <string name="Player2">Player 2</string>
     <string name="btnRestart">Restart</string>

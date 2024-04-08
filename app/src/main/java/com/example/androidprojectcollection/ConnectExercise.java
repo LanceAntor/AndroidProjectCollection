@@ -39,6 +39,10 @@ public class ConnectExercise extends AppCompatActivity implements View.OnClickLi
                 cnBTN[row][col] = findViewById(resID);
                 cnBTN[row][col].setOnClickListener(this);
                 cnBTN[row][col].setBackgroundColor(Color.BLACK);
+
+                if(row != 0){
+                    cnBTN[row][col].setEnabled(false);
+                }
             }
         }
 
@@ -60,11 +64,14 @@ public class ConnectExercise extends AppCompatActivity implements View.OnClickLi
             for (int col = 0; col < 5; col++) {
                 if (v == cnBTN[row][col]) {
                     // Drop chip in the column
-                    dropChip(col);
-                    // Check for win condition
-                    checkForWin();
-                    checkForDraw();
-                    return;
+                    if(row == 0){
+                        dropChip(col);
+                        // Check for win condition
+                        checkForWin();
+                        checkForDraw();
+                    } else {
+                        return;
+                    }
                 }
             }
         }
@@ -76,6 +83,9 @@ public class ConnectExercise extends AppCompatActivity implements View.OnClickLi
                 gameBoard[row][col] = 0;
                 cnBTN[row][col].setBackgroundColor(Color.BLACK);
                 cnBTN[row][col].setEnabled(true);
+                if(row != 0){
+                    cnBTN[row][col].setEnabled(false);
+                }
             }
         }
         currentPlayer = 0;
